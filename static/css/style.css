@@ -13,6 +13,8 @@ body {
     max-width: 1200px;
     margin: auto;
 }
+
+/* HEADER */
 header {
     background: linear-gradient(90deg, #1565c0, #1e88e5);
     padding: 20px 0;
@@ -40,8 +42,9 @@ nav ul li a {
 nav ul li a:hover {
     color: #ffd54f;
 }
+
 #hero {
-    background: url("../static/images/recepcao.jpg") center/cover no-repeat;
+    background: url("../images/recepcao.jpg") center/cover no-repeat;
     height: 70vh;
     position: relative;
 }
@@ -77,10 +80,13 @@ nav ul li a:hover {
     border-radius: 5px;
     text-decoration: none;
     transition: background 0.3s;
+    border: none;
 }
 .btn:hover {
     background: #f57c00;
 }
+
+/* SEÇÕES */
 section {
     padding: 60px 0;
 }
@@ -93,6 +99,8 @@ section h2 {
 .center-text {
     text-align: center;
 }
+
+/* QUARTOS */
 .rooms {
     display: flex;
     flex-wrap: wrap;
@@ -109,7 +117,7 @@ section h2 {
     transition: transform 0.3s;
 }
 .room:hover {
-    transform: translateY(-5px);
+    transform: translateY(-20px);
 }
 .room img {
     width: 100%;
@@ -128,6 +136,8 @@ section h2 {
     font-weight: bold;
     color: #ffd54f;
 }
+
+/* SERVIÇOS */
 .services-list {
     display: flex;
     justify-content: center;
@@ -141,6 +151,8 @@ section h2 {
     list-style: none;
     font-size: 1.1em;
 }
+
+/* GALERIA */
 .slider {
     position: relative;
     max-width: 800px;
@@ -179,10 +191,14 @@ section h2 {
 }
 .arrow.left {
     left: 10px;
+    border-radius: 16px;
 }
 .arrow.right {
     right: 10px;
+    border-radius: 16px;
 }
+
+/* LOCALIZAÇÃO */
 #localizacao iframe {
     width: 100%;
     height: 600px;
@@ -190,6 +206,8 @@ section h2 {
     border-radius: 10px;
     margin-top: 20px;
 }
+
+/* FORMULÁRIOS */
 .form-group {
     margin-bottom: 15px;
 }
@@ -206,6 +224,8 @@ section h2 {
     background: #1e1e1e;
     color: #e0e0e0;
 }
+
+/* RESERVA */
 #reservaForm {
     max-width: 500px;
     margin: auto;
@@ -217,23 +237,15 @@ section h2 {
 .center {
     text-align: center;
 }
-.btn-reservar {
-    background: #ff9800;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    transition: background 0.3s;
-}
-.btn-reservar:hover {
-    background: #f57c00;
-}
+
 .reserva-msg {
     text-align: center;
     margin-top: 15px;
     font-size: 1.3em;
     color: #ffd54f;
 }
+
+/* FOOTER */
 footer {
     background: #1f1f1f;
     color: #fff;
@@ -241,6 +253,8 @@ footer {
     padding: 20px 0;
     margin-top: 40px;
 }
+
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
     .rooms {
         flex-direction: column;

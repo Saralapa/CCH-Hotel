@@ -1,4 +1,6 @@
+// Configura os dados iniciais e inicializa os elementos quando a página é carregada
 window.addEventListener("load", function () {
+    // Verifica e se não houver nenhuma, insere imagens padrão
     let fotos = JSON.parse(localStorage.getItem("fotos"));
     if (!fotos || !fotos.length) {
         fotos = [
@@ -7,6 +9,8 @@ window.addEventListener("load", function () {
         ];
         localStorage.setItem("fotos", JSON.stringify(fotos));
     }
+
+    // Verifica e se não houver nenhum, insere os quartos padrões
     let quartos = JSON.parse(localStorage.getItem("quartos"));
     if (!quartos || !Array.isArray(quartos) || quartos.length === 0) {
         quartos = [
@@ -31,13 +35,18 @@ window.addEventListener("load", function () {
         ];
         localStorage.setItem("quartos", JSON.stringify(quartos));
     }
+
+    // Inicializa o slider da galeria
     initializeSlider();
 
+    // Verifica e insere os serviços padrões se não houver nenhum
     let servicos = JSON.parse(localStorage.getItem("servicos"));
     if (!servicos || !Array.isArray(servicos) || servicos.length === 0) {
         servicos = ["Lavanderia", "Academia", "Restaurante", "Wi-Fi Grátis"];
         localStorage.setItem("servicos", JSON.stringify(servicos));
     }
+
+    // Preenche a lista de serviços na página
     const listaServicos = document.getElementById("listaServicos");
     if (listaServicos) {
         listaServicos.innerHTML = "";
@@ -48,6 +57,7 @@ window.addEventListener("load", function () {
         });
     }
 
+    // Preenche a seção de quartos na página principal
     const listaQuartos = document.getElementById("listaQuartos");
     if (listaQuartos) {
         listaQuartos.innerHTML = "";
@@ -72,12 +82,17 @@ window.addEventListener("load", function () {
         });
     }
 });
+
+// Função para inicializar o slider da galeria
 function initializeSlider() {
     let fotos = JSON.parse(localStorage.getItem("fotos"));
     let quartos = JSON.parse(localStorage.getItem("quartos")) || [];
+    // Extrai as fotos dos quartos
     const roomPhotos = quartos.map((room) => room.foto).filter((foto) => foto);
+    // Une as fotos gerais com as fotos dos quartos, garantindo que não haja repetições
     let allImages = fotos.concat(roomPhotos);
     allImages = [...new Set(allImages)];
+    // Preenche o container do slider com as imagens
     const slidesContainer = document.querySelector(".slides");
     slidesContainer.innerHTML = "";
     allImages.forEach((url, index) => {
@@ -91,25 +106,35 @@ function initializeSlider() {
     });
     sliderCurrentIndex = 0;
 }
+
+// Função para exibir a imagem correta no slider
 function showSlide(index) {
     const slides = document.querySelectorAll(".slides img");
     slides.forEach((slide, i) => {
         slide.classList.toggle("active", i === index);
     });
 }
+
+// Função para avançar para a próxima imagem do slider
 function nextSlide() {
     const slides = document.querySelectorAll(".slides img");
     sliderCurrentIndex = (sliderCurrentIndex + 1) % slides.length;
     showSlide(sliderCurrentIndex);
 }
+
+// Função para voltar para a imagem anterior do slider
 function prevSlide() {
     const slides = document.querySelectorAll(".slides img");
     sliderCurrentIndex =
         (sliderCurrentIndex - 1 + slides.length) % slides.length;
     showSlide(sliderCurrentIndex);
 }
+
 let sliderCurrentIndex = 0;
+// Avança automaticamente a cada 5 segundos
 let sliderInterval = setInterval(nextSlide, 5000);
+
+// Configura os botões de navegação do slider após o carregamento do DOM
 document.addEventListener("DOMContentLoaded", function () {
     const leftArrow = document.querySelector(".arrow.left");
     const rightArrow = document.querySelector(".arrow.right");
@@ -124,22 +149,28 @@ document.addEventListener("DOMContentLoaded", function () {
         sliderInterval = setInterval(nextSlide, 5000);
     });
 });
+
+// Processa o formulário de reserva
 document.getElementById("reservaForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const entrada = document.getElementById("entrada").value;
     const saida = document.getElementById("saida").value;
     if (entrada && saida) {
+        // Formata as datas para o formato dd-mm-yyyy
         const msg =
             "Reserva realizada de " +
             formatDate(entrada) +
-            " a " +
+            " até " +
             formatDate(saida);
         document.getElementById("reservaMsg").innerText = msg;
+        // Armazena a reserva no localStorage
         const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
         reservas.push({ entrada: entrada, saida: saida });
         localStorage.setItem("reservas", JSON.stringify(reservas));
     }
 });
+
+// Função para formatar datas do formato yyyy-mm-dd para dd-mm-yyyy
 function formatDate(dateStr) {
     const parts = dateStr.split("-");
     return parts[2] + "-" + parts[1] + "-" + parts[0];

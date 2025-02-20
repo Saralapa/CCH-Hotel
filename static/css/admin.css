@@ -13,6 +13,8 @@ body {
     max-width: 1000px;
     margin: auto;
 }
+
+/* TELAS DE LOGIN E ADMIN */
 #loginContainer,
 #adminContainer {
     padding: 40px 0;
@@ -35,6 +37,8 @@ body {
     font-size: 2em;
     color: #e0e0e0;
 }
+
+/* FORMULÁRIOS DO ADMIN */
 form {
     width: 100%;
 }
@@ -74,6 +78,8 @@ button:hover {
     font-size: 1.1em;
     color: #e74c3c;
 }
+
+/* NAVEGAÇÃO DO ADMIN */
 nav {
     background: linear-gradient(90deg, #1565c0, #1e88e5);
     margin-bottom: 30px;
@@ -98,6 +104,8 @@ nav ul li button {
 nav ul li button:hover {
     color: #ffd54f;
 }
+
+/* SEÇÕES DO ADMIN */
 section {
     background: #1e1e1e;
     padding: 20px;
@@ -111,6 +119,8 @@ section h3 {
     margin-bottom: 20px;
     color: #ffd54f;
 }
+
+/* LISTAS DE FOTOS, SERVIÇOS E QUARTOS */
 #fotosList {
     display: flex;
     flex-wrap: wrap;
@@ -177,6 +187,8 @@ section h3 {
     gap: 10px;
     margin-top: 10px;
 }
+
+/* MODAIS */
 .modal {
     position: fixed;
     top: 0;
@@ -207,6 +219,8 @@ section h3 {
 .modal-content button {
     margin: 5px;
 }
+
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;

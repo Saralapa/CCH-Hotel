@@ -1,17 +1,23 @@
 let editingQuartoIndex = null;
 let editingReservaIndex = null;
+
+// Processa o formulário de login do admin
 document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const usuario = document.getElementById("usuario").value;
     const senha = document.getElementById("senha").value;
+    // Verifica se as credenciais são válidas
     if (usuario === "admin" && senha === "admin") {
+        // Esconde a tela de login e mostra a área administrativa
         document.getElementById("loginContainer").style.display = "none";
         document.getElementById("adminContainer").style.display = "block";
+        // Carrega os dados
         carregarFotos();
         carregarServicos();
         carregarQuartos();
         carregarReservas();
     } else {
+        // Exibe mensagem de credenciais inválidas
         const loginMsg = document.getElementById("loginMsg");
         loginMsg.innerText = "Credenciais inválidas";
         loginMsg.style.opacity = 1;
@@ -25,10 +31,14 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         }, 4000);
     }
 });
+
+// Botão de logout: volta para a tela de login
 document.getElementById("btnLogout").addEventListener("click", function () {
     document.getElementById("adminContainer").style.display = "none";
     document.getElementById("loginContainer").style.display = "block";
 });
+
+// Configura os botões do menu do admin para exibir a seção escolhida
 document.getElementById("btnFotos").addEventListener("click", function () {
     mostrarSeccao("secFotos");
 });
@@ -42,6 +52,8 @@ document.getElementById("btnReservas").addEventListener("click", function () {
     mostrarSeccao("secReservas");
     carregarReservas();
 });
+
+// Função que oculta todas as seções e exibe apenas a indicada
 function mostrarSeccao(id) {
     document.getElementById("secFotos").style.display = "none";
     document.getElementById("secServicos").style.display = "none";
@@ -49,6 +61,8 @@ function mostrarSeccao(id) {
     document.getElementById("secReservas").style.display = "none";
     document.getElementById(id).style.display = "block";
 }
+
+// Processa o formulário para adicionar uma nova foto
 document.getElementById("addFotoForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const url = document.getElementById("fotoUrl").value;
@@ -58,6 +72,8 @@ document.getElementById("addFotoForm").addEventListener("submit", function (e) {
     carregarFotos();
     document.getElementById("fotoUrl").value = "";
 });
+
+// Função para carregar as fotos na seção Fotos
 function carregarFotos() {
     let fotos = JSON.parse(localStorage.getItem("fotos"));
     if (!fotos || !Array.isArray(fotos)) {
@@ -83,6 +99,8 @@ function carregarFotos() {
         fotosList.appendChild(div);
     });
 }
+
+// Processa o formulário para adicionar um novo serviço
 document
     .getElementById("addServicoForm")
     .addEventListener("submit", function (e) {
@@ -94,6 +112,8 @@ document
         carregarServicos();
         document.getElementById("servicoNome").value = "";
     });
+
+// Função para carregar os serviços na seção Serviços
 function carregarServicos() {
     let servicos = JSON.parse(localStorage.getItem("servicos"));
     if (!servicos) {
@@ -116,6 +136,8 @@ function carregarServicos() {
         servicosList.appendChild(li);
     });
 }
+
+// Processa o formulário para adicionar um novo quarto
 document
     .getElementById("addQuartoForm")
     .addEventListener("submit", function (e) {
@@ -138,9 +160,12 @@ document
         document.getElementById("quartoPreco").value = "";
         document.getElementById("quartoFoto").value = "";
     });
+
+// Função para carregar os quartos na seção Quartos
 function carregarQuartos() {
     let quartos = JSON.parse(localStorage.getItem("quartos"));
     if (!quartos || !Array.isArray(quartos) || quartos.length === 0) {
+        // Se não houver quartos, insere os padrão
         quartos = [
             {
                 nome: "Quarto Standard",
@@ -208,6 +233,8 @@ function carregarQuartos() {
         quartosList.appendChild(div);
     });
 }
+
+// Processa o formulário para editar um quarto existente
 document
     .getElementById("formEditarQuarto")
     .addEventListener("submit", function (e) {
@@ -236,6 +263,8 @@ document
         document.getElementById("modalQuarto").classList.remove("active");
         editingQuartoIndex = null;
     });
+
+// Processa o formulário para editar uma reserva
 document
     .getElementById("formEditarReserva")
     .addEventListener("submit", function (e) {
@@ -257,6 +286,8 @@ document
         document.getElementById("modalReserva").classList.remove("active");
         editingReservaIndex = null;
     });
+
+// Função para carregar as reservas na seção Reservas
 function carregarReservas() {
     let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
     const reservasList = document.getElementById("reservasList");
@@ -295,7 +326,9 @@ function carregarReservas() {
         reservasList.appendChild(div);
     });
 }
+
+// Função para formatar datas do formato yyyy-mm-dd para dd-mm-yyyy
 function formatDate(dateStr) {
     const parts = dateStr.split("-");
-    return parts[2] + "-" + parts[1] + "-" + parts[0];
+    return parts[2] + "/" + parts[1] + "/" + parts[0];
 }

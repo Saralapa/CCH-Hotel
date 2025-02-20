@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <!-- Cabeçalho com o título do site e menu de navegação -->
     <header>
         <div class="container">
             <h1>Hotel Schmitt</h1>
@@ -25,6 +26,7 @@
             </nav>
         </div>
     </header>
+
     <section id="hero">
         <div class="hero-content">
             <h2>Bem-vindo ao Hotel Schmitt</h2>
@@ -32,40 +34,49 @@
             <a href="#reserva" class="btn">Reserve Agora</a>
         </div>
     </section>
+
     <section id="sobre">
         <div class="container">
             <h2>Sobre o Hotel</h2>
             <p class="center-text">O Hotel Schmitt oferece uma experiência única com acomodações de luxo, serviços exclusivos e uma localização privilegiada.</p>
         </div>
     </section>
+
     <section id="quartos">
         <div class="container">
             <h2>Nossos Quartos</h2>
+            <!-- Div que será preenchida dinamicamente com os cards dos quartos -->
             <div id="listaQuartos" class="rooms"></div>
         </div>
     </section>
+
     <section id="servicos">
         <div class="container">
             <h2>Nossos Serviços</h2>
+            <!-- Lista de serviços preenchida dinamicamente -->
             <ul id="listaServicos" class="services-list"></ul>
         </div>
     </section>
+
     <section id="galeria">
         <div class="container">
             <h2>Galeria</h2>
             <div class="slider">
                 <button class="arrow left">&#10094;</button>
+                <!-- Div onde as imagens do slider serão inseridas -->
                 <div class="slides"></div>
                 <button class="arrow right">&#10095;</button>
             </div>
         </div>
     </section>
+
     <section id="localizacao">
         <div class="container">
             <h2>Localização</h2>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19804.258613111308!2d-0.14158637619578155!3d51.51425835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604cb7a4e7b07%3A0xf9a7e8d67a9a4e0!2s57%20Oxford%20Street%2C%20London%20W1D%201BS%2C%20UK!5e0!3m2!1sen!2suk!4v1610000000000" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
+
     <section id="reserva">
         <div class="container">
             <h2>Reserva</h2>
@@ -79,17 +90,19 @@
                     <input type="date" id="saida" required>
                 </div>
                 <div class="center">
-                    <button type="submit" class="btn-reservar">Reservar</button>
+                    <button type="submit" class="btn">Reservar</button>
                 </div>
             </form>
             <div id="reservaMsg" class="reserva-msg"></div>
         </div>
     </section>
+
     <footer>
         <div class="container">
             <p>&copy; 2025 Hotel Schmitt - Todos os direitos reservados</p>
         </div>
     </footer>
+
     <script src="../static/js/script.js"></script>
 </body>
 
