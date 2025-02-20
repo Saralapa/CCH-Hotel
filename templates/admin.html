@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Hotel Schmitt</title>
+    <link rel="stylesheet" href="../static/css/admin.css">
+</head>
+
+<body>
+    <div id="loginContainer">
+        <div class="container">
+            <h2>Login Administrativo</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="text" id="usuario" placeholder="Usuário" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="senha" placeholder="Senha" required>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+            <div id="loginMsg"></div>
+        </div>
+    </div>
+    <div id="adminContainer" class="container" style="display:none;">
+        <nav>
+            <ul>
+                <li><button id="btnFotos">Fotos</button></li>
+                <li><button id="btnServicos">Serviços</button></li>
+                <li><button id="btnQuartos">Quartos</button></li>
+                <li><button id="btnReservas">Reservas</button></li>
+                <li><button id="btnLogout">Sair</button></li>
+            </ul>
+        </nav>
+        <section id="secFotos" style="display:none;">
+            <h2>Gerenciar Fotos</h2>
+            <div id="fotosList"></div>
+            <form id="addFotoForm">
+                <div class="form-group">
+                    <input type="url" id="fotoUrl" placeholder="URL da foto" required>
+                </div>
+                <button type="submit">Adicionar Foto</button>
+            </form>
+        </section>
+        <section id="secServicos" style="display:none;">
+            <h2>Gerenciar Serviços</h2>
+            <ul id="servicosList">
+                <li>Lavanderia<button class="removerServico">Remover</button></li>
+                <li>Academia<button class="removerServico">Remover</button></li>
+                <li>Restaurante<button class="removerServico">Remover</button></li>
+                <li>Wi-Fi Grátis<button class="removerServico">Remover</button></li>
+            </ul>
+            <form id="addServicoForm">
+                <div class="form-group">
+                    <input type="text" id="servicoNome" placeholder="Nome do serviço" required>
+                </div>
+                <button type="submit">Adicionar Serviço</button>
+            </form>
+        </section>
+        <section id="secQuartos" style="display:none;">
+            <h2>Gerenciar Quartos</h2>
+            <div id="quartosList"></div>
+            <form id="addQuartoForm">
+                <div class="form-group">
+                    <input type="text" id="quartoNome" placeholder="Nome do quarto" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="quartoDescricao" placeholder="Descrição do quarto" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.01" id="quartoPreco" placeholder="Preço por noite" required>
+                </div>
+                <div class="form-group">
+                    <input type="url" id="quartoFoto" placeholder="URL da foto do quarto" required>
+                </div>
+                <button type="submit">Adicionar Quarto</button>
+            </form>
+        </section>
+        <section id="secReservas" style="display:none;">
+            <h2>Visualizar Reservas</h2>
+            <div id="reservasList"></div>
+        </section>
+    </div>
+    <div id="modalQuarto" class="modal">
+        <div class="modal-content">
+            <h3>Editar Quarto</h3>
+            <form id="formEditarQuarto">
+                <div class="form-group">
+                    <label for="editQuartoNome">Nome:</label>
+                    <input type="text" id="editQuartoNome" required>
+                </div>
+                <div class="form-group">
+                    <label for="editQuartoDescricao">Descrição:</label>
+                    <input type="text" id="editQuartoDescricao" required>
+                </div>
+                <div class="form-group">
+                    <label for="editQuartoPreco">Preço por noite:</label>
+                    <input type="number" step="0.01" id="editQuartoPreco" required>
+                </div>
+                <div class="form-group">
+                    <label for="editQuartoFoto">Foto:</label>
+                    <input type="url" id="editQuartoFoto" required>
+                </div>
+                <button type="submit">Salvar</button>
+                <button type="button" id="cancelarQuarto">Cancelar</button>
+            </form>
+        </div>
+    </div>
+    <div id="modalReserva" class="modal">
+        <div class="modal-content">
+            <h3>Editar Reserva</h3>
+            <form id="formEditarReserva">
+                <div class="form-group">
+                    <label for="editReservaEntrada">Data de Entrada:</label>
+                    <input type="date" id="editReservaEntrada" required>
+                </div>
+                <div class="form-group">
+                    <label for="editReservaSaida">Data de Saída:</label>
+                    <input type="date" id="editReservaSaida" required>
+                </div>
+                <button type="submit">Salvar</button>
+                <button type="button" id="cancelarReserva">Cancelar</button>
+            </form>
+        </div>
+    </div>
+    <script src="../static/js/admin.js"></script>
+</body>
+
+</html>

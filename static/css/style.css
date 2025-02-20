@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #263238, #37474f);
+    color: #e0e0e0;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+header {
+    background: linear-gradient(90deg, #1565c0, #1e88e5);
+    padding: 20px 0;
+}
+header h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+nav ul li {
+    margin: 0 15px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+nav ul li a:hover {
+    color: #ffd54f;
+}
+#hero {
+    background: url("../static/images/recepcao.jpg") center/cover no-repeat;
+    height: 70vh;
+    position: relative;
+}
+#hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.hero-content h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+.btn {
+    display: inline-block;
+    background: #ff9800;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.btn:hover {
+    background: #f57c00;
+}
+section {
+    padding: 60px 0;
+}
+section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #ffd54f;
+}
+.center-text {
+    text-align: center;
+}
+.rooms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.room {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s;
+}
+.room:hover {
+    transform: translateY(-5px);
+}
+.room img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.room h3 {
+    margin-bottom: 10px;
+}
+.room p {
+    margin-bottom: 5px;
+}
+.price {
+    font-weight: bold;
+    color: #ffd54f;
+}
+.services-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.services-list li {
+    background: #1e1e1e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    list-style: none;
+    font-size: 1.1em;
+}
+.slider {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.slides {
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slides img.active {
+    opacity: 1;
+}
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ff9800;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+.arrow.left {
+    left: 10px;
+}
+.arrow.right {
+    right: 10px;
+}
+#localizacao iframe {
+    width: 100%;
+    height: 600px;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #1e1e1e;
+    color: #e0e0e0;
+}
+#reservaForm {
+    max-width: 500px;
+    margin: auto;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+.center {
+    text-align: center;
+}
+.btn-reservar {
+    background: #ff9800;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    transition: background 0.3s;
+}
+.btn-reservar:hover {
+    background: #f57c00;
+}
+.reserva-msg {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.3em;
+    color: #ffd54f;
+}
+footer {
+    background: #1f1f1f;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+@media (max-width: 768px) {
+    .rooms {
+        flex-direction: column;
+        align-items: center;
+    }
+    .slider {
+        max-width: 100%;
+    }
+    .slides {
+        height: 250px;
+    }
+    .services-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
